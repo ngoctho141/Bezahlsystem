@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.maddin.bluepay.LoginActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/input_name"
+        android:layout_alignLeft="@+id/input_name"
+        android:layout_alignStart="@+id/input_name"
+        android:text="@string/login_name"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/input_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/string_password"
+        android:layout_alignLeft="@+id/string_password"
+        android:layout_alignStart="@+id/string_password"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/login_name"
+        android:inputType="textPersonName"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/string_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/input_password"
+        android:layout_alignLeft="@+id/input_password"
+        android:layout_alignStart="@+id/input_password"
+        android:text="@string/login_password"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/input_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/checkBox_visibility"
+        android:layout_alignLeft="@+id/string_password"
+        android:layout_alignStart="@+id/checkBox_visibility"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/login_password"
+        android:inputType="textPassword"
+        android:maxLines="1" />
+
+    <CheckBox
+        android:id="@+id/checkBox_visibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/login_visibility" />
+
+    <CheckBox
+        android:id="@+id/checkBox_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox_visibility"
+        android:layout_centerHorizontal="true"
+        android:text="@string/login_save" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox_save"
+        android:layout_centerHorizontal="true"
+        android:text="@string/login_title" />
+
+    <Button
+        android:id="@+id/button_registry"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_login"
+        android:layout_centerHorizontal="true"
+        android:text="@string/login_registry" />
+
+    <TextView
+        android:id="@+id/textView_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_registry"
+        android:layout_centerHorizontal="true"
+        android:text="@string/login_warning"
+        android:textColor="#FF0000"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+</RelativeLayout>

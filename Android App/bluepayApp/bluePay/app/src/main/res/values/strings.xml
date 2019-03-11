@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Blu€Pay</string>
+
+    //Login
+    <string name="login_title">Einloggen</string>
+    <string name="login_name">Name:</string>
+    <string name="login_password">Passwort:</string>
+    <string name="login_registry">Registrieren</string>
+    <string name="login_visibility">Passwort sichtbar machen</string>
+    <string name="login_save">Passwort speichern</string>
+    <string name="login_warning">Bitte alle Felder ausfüllen!</string>
+
+    //Hauptmenü
+    <string name="main_menu">Hauptmenü</string>
+    <string name="main_search">Scannen</string>
+    <string name="main_account">Kontoeinstellungen </string>
+    <string name="main_load_money">Geld aufladen</string>
+    <string name="main_value_string">Guthaben:</string>
+    <string name="main_value_edit">Guthaben</string>
+
+    //Registrierung
+    <string name="reg_username">Benutzername:</string>
+    <string name="reg_name">Name:</string>
+    <string name="reg_prename">Vorname:</string>
+    <string name="reg_street">Straße:</string>
+    <string name="reg_number">Hausnummer:</string>
+    <string name="reg_postal">PLZ:</string>
+    <string name="reg_city">Stadt:</string>
+    <string name="reg_country">Land:</string>
+    <string name="reg_password">Bitte geben Sie hier Ihr gewünschtes Passwort ein:</string>
+    <string name="reg_sec_password">Bitte geben Sie es erneut ein:</string>
+    <string name="reg_registry">Registrieren</string>
+    <string name="reg_error">Bitte alle Felder ausfüllen!</string>
+
+    //Search
+    <string name="search_label">Verbindung aufbauen</string>
+    <string name="search_bluetooth">Über Bluetooth suchen</string>
+    <string name="search_qrCode">Über QR-Code suchen</string>
+    <string name="search_notCompatible">Nicht kompatibel</string>
+    <string name="search_scan">Scannen</string>
+    <string name="search_bt_off">Bitte schalten Sie das Bluetooth an</string>
+
+
+    //QR-Scanner
+    <string name="qrscanner_label">QR-Scanner</string>
+    <string name="qrscanner_scan">Scannen</string>
+    <string name="qrscanner_preview">Preview</string>
+
+    //Produktliste
+    <string name="product_label">Produktliste</string>
+    <string name="product_choose">Wählen Sie das gewünschte Produkt:</string>
+
+    //Buymenue
+    <string name="buy_label">Kauf wird abgewickelt</string>
+    <string name="buy_text">Kauf wird abgeschlossen</string>
+
+</resources>
