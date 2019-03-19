@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class Bluetooth_Connection {
@@ -33,30 +34,35 @@ public class Bluetooth_Connection {
     private InputStream in;
     private PrintWriter out;
 
-    public Bluetooth_Connection (String uuid, String mac) {
+    public Bluetooth_Connection(String uuid, String mac) {
         this.uuid = UUID.fromString(uuid);
         this.mac = mac;
         isInitialized = true;
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
-    public void setAdapter (BluetoothAdapter adapter) {
+    public void setAdapter(BluetoothAdapter adapter) {
         bluetoothAdapter = adapter;
     }
 
-    public void connect () {
+    public void connect() {
         if (mac == null || mac.isEmpty()) {
             Log.d(TAG, "Bluetooth-Fehler: keine MAC-Adresse!");
             return;
         }
-        bluetoothDevice = bluetoothAdapter.getRemoteDevice(mac);
+//        bluetoothDevice = bluetoothAdapter.getRemoteDevice(mac);
+
+        Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
+        for (BluetoothDevice device : pairedDevices) {
+            if (device.getAddress().equals(mac)) {
+                bluetoothDevice = device;
+            }
+        }
 
         // Socket erstellen
         try {
-            bluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(uuid);
-        }
-
-        catch (Exception e) {
+            bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(UUID.fromString("6bfc8851-cf63-4362-abf1-045dda421aad"));
+        } catch (Exception e) {
             Log.e(TAG, "Socket-Fehler: Erstellung fehlgeschlagen.");
         }
 
@@ -66,9 +72,7 @@ public class Bluetooth_Connection {
         try {
             bluetoothSocket.connect();
             isConnected = true;
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             isConnected = false;
             Log.e(TAG, "Socket-Fehler: Keine Verbindung möglich.");
         }
@@ -78,9 +82,7 @@ public class Bluetooth_Connection {
             try {
                 bluetoothSocket.close();
                 isConnected = false;
-            }
-
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.e(TAG, "Verbindungsfehler: Verbindung abgebrochen.");
             }
         }
@@ -88,23 +90,19 @@ public class Bluetooth_Connection {
         // Initialisierung des Inputstreams
         try {
             in = bluetoothSocket.getInputStream();
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e(TAG, "Konnte Inputstream nicht verbinden");
         }
 
         //Initialisierung des Outputstreams
         try {
             out = new PrintWriter(new OutputStreamWriter(bluetoothSocket.getOutputStream()));
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e(TAG, "Konnte Outputstream nicht verbinden");
         }
     }
 
-    public void send (String s) {
+    public void send(String s) {
         byte[] buffer = s.getBytes();
 
         if (isConnected) {
@@ -117,7 +115,7 @@ public class Bluetooth_Connection {
         }
     }
 
-    public String receive () {
+    public String receive() {
         byte[] buffer = new byte[1024];
         int length;
         String message = "";
@@ -130,30 +128,27 @@ public class Bluetooth_Connection {
                     message += (char) buffer[i];
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e(TAG, "Outputstream fehlgeschlagen");
         }
 
         return message;
     }
 
-    public void disconnect () {
+    public void disconnect() {
         if (isConnected && out != null) {
             isConnected = false;
 
             try {
                 out.flush();
                 bluetoothSocket.close();
-            }
-
-            catch (Exception e) {
-                Log.e (TAG, "Fehler beim schließen: Socket konnte nicht geschlossen werden");
+            } catch (Exception e) {
+                Log.e(TAG, "Fehler beim schließen: Socket konnte nicht geschlossen werden");
             }
         }
     }
 
-    public String getMacAdress () {
+    public String getMacAdress() {
         return mac;
     }
 }

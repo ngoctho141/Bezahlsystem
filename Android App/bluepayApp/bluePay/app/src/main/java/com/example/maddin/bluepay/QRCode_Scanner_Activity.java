@@ -57,7 +57,8 @@ public class QRCode_Scanner_Activity extends AppCompatActivity implements View.O
 
                     info[0] = obj.getString("uuid");
                     info[1] = obj.getString("mac");
-                    MainActivity.initBluetoothConnection(info[0], info[1]);
+//                    MainActivity.initBluetoothConnection(info[0], info[1]);
+                    MainActivity.initBluetoothConnection("6bfc8851-cf63-4362-abf1-045dda421aad", "B8:27:EB:FE:E6:98");
                     startActivity(new Intent(QRCode_Scanner_Activity.this, ProductlistActivity.class));
                     finish();
 

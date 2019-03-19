@@ -3,6 +3,9 @@ package com.example.maddin.bluepay;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -11,6 +14,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Network_Connection {
@@ -37,10 +41,16 @@ public class Network_Connection {
     public String postConnection (String params) {
 
         InputStream input = null;
+        List<NameValuePair> paramsList = new ArrayList<>();
+        for(String param: params.split("&")){
+            paramsList.add(new BasicNameValuePair(param.split("=")[0], param.split("=")[1]));
+        }
         HttpURLConnection connection;
         String tmp = "";
-        try {
-            connection = (HttpURLConnection) url.openConnection();
+//        try {
+            ServiceHandling sh = new ServiceHandling();
+            String json = sh.call("http://10.0.2.2:8082/test/handy.php", ServiceHandling.POST, paramsList);
+            /*connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
 
             if (!sb.toString().equals(""))
@@ -75,11 +85,11 @@ public class Network_Connection {
                         sb.append(value);
                     }
                 }
-            }
-        } catch (IOException e) {
-            Log.e("Network_Connection", "Error in postConnection()", e);
-        }
-        return tmp;
+            }*/
+//        } catch (IOException e) {
+//            Log.e("Network_Connection", "Error in postConnection()", e);
+//        }
+        return json;
     }
 
     private String convertStreamToString (InputStream in) {
