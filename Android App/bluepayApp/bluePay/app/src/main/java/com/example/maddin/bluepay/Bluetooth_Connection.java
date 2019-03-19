@@ -61,7 +61,7 @@ public class Bluetooth_Connection {
 
         // Socket erstellen
         try {
-            bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(UUID.fromString("6bfc8851-cf63-4362-abf1-045dda421aad"));
+            bluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(UUID.fromString("a23d00bc-217c-123b-9c00-fc44577136ee"));
         } catch (Exception e) {
             Log.e(TAG, "Socket-Fehler: Erstellung fehlgeschlagen.");
         }

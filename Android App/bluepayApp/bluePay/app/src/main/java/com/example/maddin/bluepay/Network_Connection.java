@@ -25,7 +25,8 @@ public class Network_Connection {
 
     private Network_Connection() {
         try {
-            url = new URL ("http://pr-245.lab.if.haw-landshut.de/handy.php");
+//            url = new URL ("http://pr-245.lab.if.haw-landshut.de/handy.php");
+            url = new URL ("http://192.168.0.4:8082/test/handy.php");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -41,16 +42,16 @@ public class Network_Connection {
     public String postConnection (String params) {
 
         InputStream input = null;
-        List<NameValuePair> paramsList = new ArrayList<>();
+        /*List<NameValuePair> paramsList = new ArrayList<>();
         for(String param: params.split("&")){
             paramsList.add(new BasicNameValuePair(param.split("=")[0], param.split("=")[1]));
-        }
+        }*/
         HttpURLConnection connection;
         String tmp = "";
-//        try {
-            ServiceHandling sh = new ServiceHandling();
-            String json = sh.call("http://10.0.2.2:8082/test/handy.php", ServiceHandling.POST, paramsList);
-            /*connection = (HttpURLConnection) url.openConnection();
+        try {
+            /*ServiceHandling sh = new ServiceHandling();
+            String json = sh.call("http://10.0.2.2:8082/test/handy.php", ServiceHandling.POST, paramsList);*/
+            connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
 
             if (!sb.toString().equals(""))
@@ -85,11 +86,11 @@ public class Network_Connection {
                         sb.append(value);
                     }
                 }
-            }*/
-//        } catch (IOException e) {
-//            Log.e("Network_Connection", "Error in postConnection()", e);
-//        }
-        return json;
+            }
+        } catch (IOException e) {
+            Log.e("Network_Connection", "Error in postConnection()", e);
+        }
+        return tmp;
     }
 
     private String convertStreamToString (InputStream in) {
