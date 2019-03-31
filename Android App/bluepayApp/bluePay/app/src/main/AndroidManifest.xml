@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PaymentDetails"></activity>
+        <activity android:name=".AccountSettingActivity"></activity>
+        <activity android:name=".PaymentDetails" />
         <activity android:name=".AufladenActivity" />
         <activity
             android:name=".LoginActivity"

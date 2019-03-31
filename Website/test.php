@@ -4,11 +4,17 @@ Florian Ludwig
 test Seite für änderungen am Apache Server oder zum testen von neuén ideen 
 -->
 <?php
-	$name = $_POST['name'];
-	$passwort = $_POST['passwort'];
+session_start();
+?>
+<?php
+	// $name = $_POST['name'];
+	// $passwort = $_POST['passwort'];
+	
+	$name = $_SESSION['username'];
+	$passwort = $_SESSION['password'];
 	
 
-	$con = new mysqli("localhost", "handy", "blu3", "automaten2_0");
+	$con = new mysqli("localhost", "root", "", "automaten2_0");
 	if($con->connect_errno)
 	{
 		die("Verbindung fehlgeschlagen: " . $con->connect_error);

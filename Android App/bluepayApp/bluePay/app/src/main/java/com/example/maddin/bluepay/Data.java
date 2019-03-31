@@ -3,8 +3,12 @@ package com.example.maddin.bluepay;
 import android.util.Log;
 
 public class Data {
+    private String userID;
     private String username;
     private String password;
+    private String telNumber;
+    private String birthday;
+    private String email;
     private String name;
     private String street;
     private String city;
@@ -34,11 +38,16 @@ public class Data {
     }
 
     public String getUsername() {
-        return name;
+        return username;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    void setPassword(String password)
+    {
+            this.password = password;
     }
 
     public double getValue() { return value; }
@@ -54,5 +63,41 @@ public class Data {
         street = s;
         city = t;
         country = c;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getTelNumber() {
+        return telNumber;
+    }
+
+    public void setTelNumber(String telNumber) {
+        this.telNumber = telNumber;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

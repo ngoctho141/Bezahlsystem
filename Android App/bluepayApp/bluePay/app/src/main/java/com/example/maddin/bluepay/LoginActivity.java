@@ -74,8 +74,15 @@ public class LoginActivity extends AppCompatActivity {
                         Log.e(TAG, "Error in Thread.join()", e);
                     }
                     if (!tmp.equals("") && tmp != null && !tmp.substring(0, 2).equals("-1")) {
-                            tmp = tmp.substring(tmp.indexOf(";")+1);
-                            data.setValue(Double.parseDouble(tmp));
+                            String[]dataArr = tmp.split(";");
+//                            tmp = tmp.substring(tmp.indexOf(";")+1);
+                            data.setUserID(dataArr[0]);
+                            data.setUsername(dataArr[1]);
+                            data.setPassword(dataArr[2]);
+                            data.setTelNumber(dataArr[3]);
+                            data.setBirthday(dataArr[4]);
+                            data.setValue(Double.parseDouble(dataArr[5]));
+                            data.setEmail(dataArr[6]);
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             warning.setVisibility(TextView.INVISIBLE);
                             finish();
