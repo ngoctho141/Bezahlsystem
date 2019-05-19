@@ -11,22 +11,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/acc_id"
-        android:layout_alignLeft="@+id/acc_id"
         android:layout_alignStart="@+id/acc_id"
+        android:layout_alignLeft="@+id/acc_id"
         android:text="Customer ID:"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/acc_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tv_name"
-        android:layout_alignLeft="@+id/tv_name"
         android:layout_alignStart="@+id/tv_name"
+        android:layout_alignLeft="@+id/tv_name"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Customer ID"
         android:enabled="false"
+        android:hint="Customer ID"
         android:singleLine="true" />
 
     <TextView
@@ -36,7 +36,7 @@
         android:layout_above="@+id/acc_name"
         android:layout_alignLeft="@+id/acc_name"
         android:text="User name:"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/acc_name"
@@ -45,10 +45,9 @@
         android:layout_above="@+id/tv_password"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Name"
         android:enabled="false"
-        android:singleLine="true"
-        />
+        android:hint="Name"
+        android:singleLine="true" />
 
 
     <TextView
@@ -58,7 +57,7 @@
         android:layout_above="@+id/acc_password"
         android:layout_alignLeft="@+id/acc_password"
         android:text="Password:"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/acc_password"
@@ -69,26 +68,24 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:singleLine="true"
-        />
+        android:singleLine="true" />
 
     <CheckBox
         android:id="@+id/visibility"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/tv_email"
+        android:layout_centerHorizontal="true"
         android:text="@string/login_visibility" />
 
     <TextView
         android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/acc_email"
         android:layout_above="@+id/acc_email"
+        android:layout_alignLeft="@+id/acc_email"
         android:text="Email:"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/acc_email"
@@ -98,7 +95,8 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Email"
-        android:singleLine="true"/>
+        android:inputType="textEmailAddress"
+        android:singleLine="true" />
 
 
     <TextView
@@ -108,8 +106,7 @@
         android:layout_above="@+id/acc_tel"
         android:layout_alignLeft="@+id/acc_tel"
         android:text="Telephone number:"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/acc_tel"
@@ -119,8 +116,8 @@
         android:layout_centerVertical="true"
         android:ems="10"
         android:hint="Telephone number"
-        android:singleLine="true"
-        />
+        android:inputType="phone"
+        android:singleLine="true" />
 
 
     <TextView
@@ -130,8 +127,7 @@
         android:layout_below="@+id/acc_tel"
         android:layout_alignLeft="@+id/acc_balance"
         android:hint="Balance:"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/acc_balance"
@@ -140,10 +136,9 @@
         android:layout_below="@+id/tv_balance"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Balance"
-        android:singleLine="true"
         android:enabled="false"
-        />
+        android:hint="Balance"
+        android:singleLine="true" />
 
 
     <TextView
@@ -153,8 +148,7 @@
         android:layout_below="@+id/acc_balance"
         android:layout_alignLeft="@+id/acc_birthday"
         android:text="Birthday:"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/acc_birthday"
@@ -162,28 +156,34 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_birthday"
         android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:cursorVisible="false"
         android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:hint="Birthday"
-        android:singleLine="true"/>
+        android:inputType="date"
+        android:singleLine="true" />
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/acc_birthday"
-    android:layout_centerHorizontal="true">
-    <Button
-        android:id="@+id/btn_change"
+    <LinearLayout
+        android:id="@+id/li_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Change"
-        />
-    <Button
-        android:id="@+id/btn_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Cancel"
-        />
-</LinearLayout>
+        android:layout_below="@+id/acc_birthday"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/btn_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Change" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Cancel" />
+    </LinearLayout>
 </RelativeLayout>

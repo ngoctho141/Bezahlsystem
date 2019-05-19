@@ -26,7 +26,7 @@ public class Network_Connection {
     private Network_Connection() {
         try {
 //            url = new URL ("http://pr-245.lab.if.haw-landshut.de/handy.php");
-            url = new URL ("http://192.168.0.4:8082/test/handy.php");
+            url = new URL ("http://192.168.0.102:8082/test/handy.php");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

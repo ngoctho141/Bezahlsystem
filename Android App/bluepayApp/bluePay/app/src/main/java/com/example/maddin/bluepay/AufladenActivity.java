@@ -50,7 +50,7 @@ public class AufladenActivity extends AppCompatActivity {
         btnPayNow = findViewById(R.id.btnPayNow);
         edtAmount = findViewById(R.id.edtAmount);
 
-        btnPayNow.setOnClickListener(new View.OnClickListener(){
+            btnPayNow.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 processPayment();
@@ -67,6 +67,7 @@ public class AufladenActivity extends AppCompatActivity {
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
         intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payPalPayment);
         startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+        //finish();
     }
 
     @Override

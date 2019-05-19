@@ -41,6 +41,7 @@ public class PaymentDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PaymentDetails.this, MainActivity.class));
+                //finish();
             }
         });
 
