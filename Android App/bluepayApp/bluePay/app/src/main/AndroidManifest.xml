@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.maddin.bluepay">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".AccountSettingActivity"></activity>
+        <activity android:name=".PaymentDetails" />
+        <activity android:name=".AufladenActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/login_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".RegistryActivity"
+            android:label="@string/reg_registry" />
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/search_label" />
+        <activity
+            android:name=".ProductlistActivity"
+            android:label="@string/product_label" />
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+
+        <activity android:name=".QRCode_Scanner_Activity" />
+        <activity android:name=".BuyActivity" />
+    </application>
+
+</manifest>

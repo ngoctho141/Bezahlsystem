@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorAccent2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+        <Button
+        android:id="@+id/main_scan"
+        android:layout_width="200dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_account"
+        android:layout_centerHorizontal="true"
+        android:text="@string/main_search" />
+
+    <Button
+        android:id="@+id/main_account"
+        android:layout_width="200dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/main_account" />
+
+    <Button
+        android:id="@+id/main_money"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/main_account"
+        android:text="@string/main_load_money" />
+
+    <Button
+        android:id="@+id/main_logout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_money"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="Abmelden" />
+
+    ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/main_scan"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@drawable/blue" />
+
+    <TextView
+        android:id="@+id/main_value_string"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:layout_below="@+id/main_logout"
+        android:text="@string/main_value_string" />
+
+    <EditText
+        android:id="@+id/main_value_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorText"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/main_value_string"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="@string/main_value_edit" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-34dp"
+        android:layout_marginEnd="-1dp"
+        app:srcCompat="@drawable/welcome" />
+</RelativeLayout>
