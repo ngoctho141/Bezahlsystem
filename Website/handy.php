@@ -140,11 +140,18 @@ switch($command)
      $telefon  = $_POST['telefon'];
      $geburtsdatum = $_POST['geburtsdatum'];
 	 $email  =$_POST['email'];
-     $passwort = password_hash($passwort ,PASSWORD_DEFAULT);
-     $sql= "INSERT INTO  kunde (kname,email,passwort,telefon,geburtsdatum)VALUES('$name','$email','$password','$telefon','$geburtsdatum')";
-	
-	 	 $result = mysqli_query($con, $sql);
-		print($result. "|" . $passwort . "|" . $email . "|" . $telefon . "|" . $geburtsdatum . "|" . $name);
+	 $sql = "SELECT kname FROM kunde WHERE kname = '$name'";
+	 $result = mysqli_query($con, $sql);
+//     $passwort = password_hash($password ,PASSWORD_DEFAULT);
+		 if(mysqli_num_rows($result)>0)
+		 {
+			 print(-1);
+		 }else
+		 {
+		 	 $sql= "INSERT INTO  kunde (kname,email,passwort,telefon,geburtsdatum, guthaben)VALUES('$name','$email','$password','$telefon','$geburtsdatum', 0)";
+		 	 $result = mysqli_query($con, $sql);
+			 print(1);
+		 }
       break;
 
 

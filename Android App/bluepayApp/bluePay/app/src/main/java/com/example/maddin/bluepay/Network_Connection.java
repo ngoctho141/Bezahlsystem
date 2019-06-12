@@ -28,7 +28,8 @@ public class Network_Connection {
 //            url = new URL ("http://pr-245.lab.if.haw-landshut.de/handy.php");
      //       url = new URL ("http://10.48.133.10/test/handy.php"); uni
        //     192.168.178.32 hause
-            url = new URL ("http://192.168.178.32/test/handy.php");
+            //192.168.0.102 tho's home
+            url = new URL ("http://192.168.0.102:8082/odai-test/handy.php");
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

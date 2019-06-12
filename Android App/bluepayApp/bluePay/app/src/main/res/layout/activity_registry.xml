@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    android:paddingTop="80dp"
-    android:background="@color/colorAccent2"
-    tools:context=".RegistryActivity">
+    android:layout_width="match_parent">
 
-    <!--<android.support.design.widget.TextInputLayout-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="80dp"
+        android:background="@color/colorAccent2"
+        tools:context=".RegistryActivity">
+
+        <!--<android.support.design.widget.TextInputLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_marginTop="8dp"-->
         <!--android:layout_marginBottom="8dp"-->
         <!--&gt;-->
         <!--<EditText android:id="@+id/input_password"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:inputType="textPassword"-->
-            <!--android:hint="Password"/>-->
-    <!--</android.support.design.widget.TextInputLayout>-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:hint="Password"/>-->
+        <!--</android.support.design.widget.TextInputLayout>-->
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textColor="@color/colorText"
-        android:id="@+id/name_R"
-
-        app:counterEnabled="true"
-        app:counterMaxLength="15"
-        app:errorEnabled="true">
-
-        <EditText
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:hint="Name"
-            android:inputType="textPersonName"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:textColor="@color/colorText"
-            />
-    </android.support.design.widget.TextInputLayout>
+            android:id="@+id/name_R"
+
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:errorEnabled="true">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorText"
+                />
+        </android.support.design.widget.TextInputLayout>
 
 
 
-    <!--<EditText-->
+        <!--<EditText-->
         <!--android:id="@+id/name_R"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="65dp"-->
@@ -55,87 +59,87 @@
         <!--android:textColor="@color/colorText" />-->
 
 
-    <!--<EditText-->
+        <!--<EditText-->
         <!--android:id="@+id/email_R"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="65dp"-->
         <!--android:hint="Email : "-->
         <!--android:textColor="@color/colorText" />-->
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:errorEnabled="true"
-        android:textColor="@color/colorText"
-        android:id="@+id/email_R"
-        android:layout_marginBottom="8dp">
-
-        <EditText
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:hint="Email "
-            android:inputType="textEmailAddress"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:errorEnabled="true"
             android:textColor="@color/colorText"
- />
-    </android.support.design.widget.TextInputLayout>
+            android:id="@+id/email_R"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:hint="Email "
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorText"
+                />
+        </android.support.design.widget.TextInputLayout>
 
 
-    <!--<EditText-->
+        <!--<EditText-->
         <!--android:id="@+id/telefon_R"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="65dp"-->
         <!--android:hint="Telefon"-->
         <!--android:textColor="@color/colorText" />-->
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:errorEnabled="true"
-        android:textColor="@color/colorText"
-        android:id="@+id/telefon_R"
-        android:layout_marginBottom="8dp">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:errorEnabled="true"
+            android:textColor="@color/colorText"
+            android:id="@+id/telefon_R"
+            android:layout_marginBottom="8dp">
 
-        <EditText
-            android:layout_width="387dp"
-            android:layout_height="36dp"
-            android:hint="Telefon  "
-            android:inputType="textPhonetic"
-            android:textColor="@color/colorText" />
-    </android.support.design.widget.TextInputLayout>
-    /*
-    <!--<EditText-->
+            <EditText
+                android:layout_width="387dp"
+                android:layout_height="36dp"
+                android:hint="Telefon  "
+                android:inputType="textPhonetic"
+                android:textColor="@color/colorText" />
+        </android.support.design.widget.TextInputLayout>
+        /*
+        <!--<EditText-->
         <!--android:id="@+id/geburtsdatum_R"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="65dp"-->
         <!--android:hint="Geburtsdatum : "-->
         <!--android:textColor="@color/colorText" />-->
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        app:errorEnabled="true"
-        android:textColor="@color/colorText"
-        android:id="@+id/geburtsdatum_R"
-        android:layout_marginBottom="8dp">
-
-        <EditText
-
-            android:inputType="date"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:clickable="false"
-            android:singleLine="true"
-            android:cursorVisible="false"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:hint="Geburtsdatum  "
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:errorEnabled="true"
             android:textColor="@color/colorText"
+            android:id="@+id/geburtsdatum_R"
+            android:layout_marginBottom="8dp">
 
-        />
-    </android.support.design.widget.TextInputLayout>
+            <EditText
 
-    <!--<EditText-->
+                android:inputType="date"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
+                android:singleLine="true"
+                android:cursorVisible="false"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:hint="Geburtsdatum  "
+                android:textColor="@color/colorText"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--<EditText-->
         <!--android:id="@+id/password_R"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="65dp"-->
@@ -143,7 +147,7 @@
         <!--android:inputType="textPassword"-->
         <!--android:textColor="@color/colorText" />-->
 
-    <!--<EditText-->
+        <!--<EditText-->
         <!--android:id="@+id/password_c_R"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="65dp"-->
@@ -151,106 +155,107 @@
         <!--android:hint="Passwort bestätigen : "-->
         <!--android:textColor="@color/colorText" />-->
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        android:textColor="@color/colorText"
-        android:id="@+id/password_R"
-
-        app:passwordToggleEnabled="true">
-
-        <EditText
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:textColor="@color/colorText"
-            android:hint="Password"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
-
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        app:passwordToggleEnabled="true"
-        app:errorEnabled="true"
-        android:id="@+id/password_c_R"
-
-        >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:textColor="@color/colorText"
-
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
+            app:errorEnabled="true"
+            android:textColor="@color/colorText"
+            android:id="@+id/password_R"
+
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:textColor="@color/colorText"
+                android:hint="Password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
 
 
-    <ProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:id="@+id/loading_R"
-        android:visibility="gone"
-        />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true"
+            android:id="@+id/password_c_R"
 
-    <EditText
-        android:id="@+id/acc_balance2_R"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_balance"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorText"
+            >
 
-        android:ems="10"
-        android:enabled="false"
-        android:visibility="gone"
-        android:hint="Balance"
-        android:singleLine="true" />
+            <EditText
+                android:layout_width="match_parent"
+                android:textColor="@color/colorText"
+
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
 
 
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/loading_R"
+            android:visibility="gone"
+            />
 
-    <EditText
-        android:id="@+id/acc_id2_R"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_name"
-        android:textColor="@color/colorText"
-        android:layout_alignStart="@+id/tv_name"
-        android:layout_alignLeft="@+id/tv_name"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        android:ems="10"
-        android:enabled="false"
-        android:hint="Customer ID"
-        android:singleLine="true" />
+        <EditText
+            android:id="@+id/acc_balance2_R"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_balance"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorText"
 
-
-    <Button
-        android:backgroundTint="@color/colorPrimary"
-        android:textColor="@color/colorText"
-        android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_height="55dp"
-        android:text="Register"
-        android:id="@+id/btn_regist_R"
-        />
-
-    <TextView
-        android:id="@+id/textView_warning_Reg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button_registry"
-        android:layout_centerHorizontal="true"
-        android:text="@string/login_warning"
-        android:textColor="#FF0000"
-        android:textSize="20sp"
-        android:visibility="invisible"
-></TextView>
+            android:ems="10"
+            android:enabled="false"
+            android:visibility="gone"
+            android:hint="Balance"
+            android:singleLine="true" />
 
 
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/acc_id2_R"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_name"
+            android:textColor="@color/colorText"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="Customer ID"
+            android:singleLine="true" />
+
+
+        <Button
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/colorText"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="55dp"
+            android:text="Register"
+            android:id="@+id/btn_regist_R"
+            />
+
+        <TextView
+            android:id="@+id/textView_warning_Reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_registry"
+            android:layout_centerHorizontal="true"
+            android:text="@string/login_warning"
+            android:textColor="#FF0000"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            ></TextView>
+
+
+
+    </LinearLayout>
+</ScrollView>

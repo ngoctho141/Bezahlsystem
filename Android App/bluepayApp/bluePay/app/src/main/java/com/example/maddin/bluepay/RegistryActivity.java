@@ -87,14 +87,21 @@ public class RegistryActivity extends AppCompatActivity {
                    public void onClick(View v) {
                        Thread thread = new Thread() {
                            public void run() {
-
-                               if (tmp.equals("") || tmp.substring(0, 2).equals("-1")) {
-                                   Toast.makeText(RegistryActivity.this, "Registrierung fehlgeschlagen", Toast.LENGTH_LONG).show();
-                               }
-                               else if (!validateEmail() | !validateUsername() | !validatePassword()) {
-                                   return;
+                               Thread thread;
+                               if (!validateEmail() | !validateUsername() | !validatePassword()) {
+                                   thread = new Thread(){
+                                       @Override
+                                       public void run() {
+                                           runOnUiThread(new Runnable() {
+                                               @Override
+                                               public void run() {
+                                                   Toast.makeText(RegistryActivity.this,"Sie haben falsch eingegeben", Toast.LENGTH_LONG).show();
+                                               }
+                                           });
+                                       }
+                                   };
+                                   thread.start();
                                }else {
-
                                    Network_Connection con = Network_Connection.getInstance();
                                    tmp = con.postConnection("command=Registry&password=" + password.getEditText().getText().toString().trim()
                                            + "&email=" + email.getEditText().getText().toString().trim()
@@ -102,10 +109,34 @@ public class RegistryActivity extends AppCompatActivity {
                                            + "&geburtsdatum=" + geburtsdatum.getEditText().getText().toString().trim()
                                            + "&name=" + name.getEditText().getText().toString().trim()
                                    );
-                                   //   +"$kid="+id.getText().toString()
-
-                                   Toast.makeText(RegistryActivity.this, "Registrierung erfolgreich", Toast.LENGTH_LONG).show();
-                                   startActivity(new Intent(RegistryActivity.this, LoginActivity.class));
+                                   if (tmp.equals("-1")) {
+                                       thread = new Thread(){
+                                           @Override
+                                           public void run() {
+                                               runOnUiThread(new Runnable() {
+                                                   @Override
+                                                   public void run() {
+                                                       Toast.makeText(RegistryActivity.this, "Benutzername ist schon vergeben.", Toast.LENGTH_LONG).show();
+                                                   }
+                                               });
+                                           }
+                                       };
+                                       thread.start();
+                                   } else {
+                                       thread = new Thread(){
+                                           @Override
+                                           public void run() {
+                                               runOnUiThread(new Runnable() {
+                                                   @Override
+                                                   public void run() {
+                                                       Toast.makeText(RegistryActivity.this, "Registrierung erfolgreich", Toast.LENGTH_LONG).show();
+                                                   }
+                                               });
+                                           }
+                                       };
+                                       thread.start();
+                                       startActivity(new Intent(RegistryActivity.this, LoginActivity.class));
+                                   }
                                }
 
                            }
@@ -173,29 +204,95 @@ public class RegistryActivity extends AppCompatActivity {
     }*/
 private boolean validateEmail() {
     String emailInput = email.getEditText().getText().toString().trim();
-
+    Thread thread;
     if (emailInput.isEmpty()) {
-        email.setError("Feld darf nicht leer sein");
+        thread = new Thread(){
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        email.setError("Feld darf nicht leer sein");
+                    }
+                });
+            }
+        };
+        thread.start();
         return false;
     } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-        email.setError("Bitte geben Sie eine gültige E-Mail-Adresse ein");
+        thread = new Thread(){
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        email.setError("Bitte geben Sie eine gültige E-Mail-Adresse ein");
+                    }
+                });
+            }
+        };
+        thread.start();
         return false;
     } else {
-        email.setError(null);
+        thread = new Thread(){
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        email.setError(null);
+                    }
+                });
+            }
+        };
+        thread.start();
         return true;
     }
 }
     private boolean validateUsername() {
         String usernameInput = name.getEditText().getText().toString().trim();
-
+        Thread thread;
         if (usernameInput.isEmpty()) {
-            name.setError("Feld darf nicht leer sein ");
+            thread = new Thread(){
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            name.setError("Feld darf nicht leer sein ");
+                        }
+                    });
+                }
+            };
+            thread.start();
             return false;
         } else if (usernameInput.length() > 15) {
-            name.setError("Benutzername zu lang");
+            thread = new Thread(){
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            name.setError("Benutzername zu lang");
+                        }
+                    });
+                }
+            };
+            thread.start();
             return false;
         } else {
-            name.setError(null);
+            thread = new Thread(){
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            name.setError(null);
+                        }
+                    });
+                }
+            };
+            thread.start();
             return true;
         }
     }
@@ -203,15 +300,48 @@ private boolean validateEmail() {
 
     private boolean validatePassword() {
         String passwordInput = password.getEditText().getText().toString().trim();
-
+        Thread thread;
         if (passwordInput.isEmpty()) {
-            password.setError("Feld darf nicht leer sein");
+            thread = new Thread(){
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            password.setError("Feld darf nicht leer sein");
+                        }
+                    });
+                }
+            };
+            thread.start();
             return false;
         } else if (!PASSWORT_PATTERN.matcher(passwordInput).matches()) {
-            password.setError("das Passwort ist zu schwach");
+            thread = new Thread(){
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            password.setError("das Passwort ist zu schwach");
+                        }
+                    });
+                }
+            };
+            thread.start();
             return false;
         } else {
-            password.setError(null);
+            thread = new Thread(){
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            password.setError(null);
+                        }
+                    });
+                }
+            };
+            thread.start();
             return true;
         }
     }
