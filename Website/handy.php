@@ -15,28 +15,34 @@ switch($command)
 	case "Login":
 		$name = $_POST['name'];
 		$password = $_POST['password'];
-		$sql = "SELECT kid, kname, passwort, telefon, geburtsdatum, guthaben, email FROM kunde WHERE kname = '$name' AND passwort = '$password';";
+			$sql = "SELECT kid, kname, passwort, telefon, geburtsdatum, guthaben, email FROM kunde WHERE kname = '$name';";
+			$result = mysqli_query($con,$sql);
 
-		$result = mysqli_query($con,$sql);
-
-		if(mysqli_num_rows($result)>0)
-		{
-			while($row = mysqli_fetch_assoc($result))
+			if(mysqli_num_rows($result)>0)
 			{
-				//schreiben von wichtigen variablen in die Session
-				$_SESSION['kid'] = $row['kid'];
-				$_SESSION['kname'] = $row['kname'];
-				$_SESSION['passwort'] = $row['passwort'];
-				$_SESSION['telefon'] = $row['telefon'];
-				$_SESSION['geburtsdatum'] = $row['geburtsdatum'];
-				$_SESSION['gut'] = $row['guthaben'];
-				$_SESSION['email'] = $row['email'] ?: " ";
+				while($row = mysqli_fetch_assoc($result))
+				{
+					if(password_verify($password, $row['passwort'])){
+						//schreiben von wichtigen variablen in die Session
+						$_SESSION['kid'] = $row['kid'];
+						$_SESSION['kname'] = $row['kname'];
+						$_SESSION['passwort'] = $row['passwort'];
+						$_SESSION['telefon'] = $row['telefon'];
+						$_SESSION['geburtsdatum'] = $row['geburtsdatum'];
+						$_SESSION['gut'] = $row['guthaben'];
+						$_SESSION['email'] = $row['email'] ?: " ";
+						print($_SESSION['kid'] . ";" . $_SESSION['kname'] . ";" . $password . ";" . $_SESSION['telefon'] . ";" . $_SESSION['geburtsdatum'] . ";" . $_SESSION['gut'] . ";" . $_SESSION['email']);
+					} else {
+						print(-1);
+						break;
+					}
+				}
+			}else
+			{
+				print(-1);
 			}
-			print($_SESSION['kid'] . ";" . $_SESSION['kname'] . ";" . $_SESSION['passwort'] . ";" . $_SESSION['telefon'] . ";" . $_SESSION['geburtsdatum'] . ";" . $_SESSION['gut'] . ";" . $_SESSION['email']);
-		}else
-		{
-			print(-1);
-		}
+
+		
 
 		break;
 
@@ -85,7 +91,7 @@ switch($command)
 
 		$sql = "UPDATE kunde SET guthaben = '$guthaben' WHERE kid = '$kid';";
 		$result = mysqli_query($con,$sql);
-		print("buch_result;". $result. "|");
+		print("buch_result;". $result.";".$guthaben."|");
 		$_SESSION['gut'] = $guthaben;
 
 
@@ -128,7 +134,8 @@ switch($command)
 		$email = $_POST['email'];
 		$telefon = $_POST['telefon'];
 		$geburtsdatum = $_POST['geburtsdatum'];
-		$sql = "Update kunde set passwort = '$passwort', telefon = '$telefon', geburtsdatum = '$geburtsdatum', email = '$email' where kid = '$kid'";
+		$hash = password_hash($passwort, PASSWORD_DEFAULT);
+		$sql = "Update kunde set passwort = '$hash', telefon = '$telefon', geburtsdatum = '$geburtsdatum', email = '$email' where kid = '$kid'";
 		$result = mysqli_query($con, $sql);
 		print($result. "|" . $passwort . "|" . $email . "|" . $telefon . "|" . $geburtsdatum);
 		break;
@@ -148,7 +155,8 @@ switch($command)
 			 print(-1);
 		 }else
 		 {
-		 	 $sql= "INSERT INTO  kunde (kname,email,passwort,telefon,geburtsdatum, guthaben)VALUES('$name','$email','$password','$telefon','$geburtsdatum', 0)";
+			 $hash = password_hash($password, PASSWORD_DEFAULT);
+		 	 $sql= "INSERT INTO  kunde (kname,email,passwort,telefon,geburtsdatum, guthaben)VALUES('$name','$email','$hash','$telefon','$geburtsdatum', 0)";
 		 	 $result = mysqli_query($con, $sql);
 			 print(1);
 		 }

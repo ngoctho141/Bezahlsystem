@@ -32,8 +32,8 @@ public class BuyActivity extends AppCompatActivity {
                 String[] tmp = string.split("\\|");
 
                 bluetooth.connect();
-
-                if (tmp[0].substring(tmp[0].indexOf(";") + 1).equals("1")) {
+                String[] halfFirst = tmp[0].split(";");
+                if (halfFirst[1].equals("1")) {
                     bluetooth.send("BUY:" + wantTo + ":" + tmp[1]);
 
                     try {
@@ -46,10 +46,12 @@ public class BuyActivity extends AppCompatActivity {
 
                     if (string.split("S")[0].equals("OK")) {
                         temp = "Vielen Dank für Ihren Einkauf";
+                        MainActivity.getData().setValue(Double.parseDouble(halfFirst[2]));
                         startActivity(new Intent(BuyActivity.this, MainActivity.class));
                     }
                     else {
                         temp = "Verbindungsabbruch\nBitte wenden Sie sich an den Support";
+                        MainActivity.getData().setValue(Double.parseDouble(halfFirst[2]));
                         startActivity(new Intent(BuyActivity.this, MainActivity.class));
                     }
                 }

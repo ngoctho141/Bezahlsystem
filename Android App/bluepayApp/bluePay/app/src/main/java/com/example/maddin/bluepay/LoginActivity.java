@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -92,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else {
                         warning.setText("Benutzereingaben überprüfen");
+                        Toast.makeText(LoginActivity.this, "Benutzereingaben überprüfen", Toast.LENGTH_LONG).show();
                     }
 
                 }

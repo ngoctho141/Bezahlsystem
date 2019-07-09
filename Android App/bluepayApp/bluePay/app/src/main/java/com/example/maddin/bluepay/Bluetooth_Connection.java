@@ -51,18 +51,18 @@ public class Bluetooth_Connection {
             Log.d(TAG, "Bluetooth-Fehler: keine MAC-Adresse!");
             return;
         }
-//        bluetoothDevice = bluetoothAdapter.getRemoteDevice(mac);
+        bluetoothDevice = bluetoothAdapter.getRemoteDevice(mac);
 
-        Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
+        /*Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
         for (BluetoothDevice device : pairedDevices) {
             if (device.getAddress().equals(mac)) {
                 bluetoothDevice = device;
             }
-        }
+        }*/
 
         // Socket erstellen
         try {
-            bluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(UUID.fromString("a23d00bc-217c-123b-9c00-fc44577136ee"));
+            bluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(uuid);
         } catch (Exception e) {
             Log.e(TAG, "Socket-Fehler: Erstellung fehlgeschlagen.");
         }
